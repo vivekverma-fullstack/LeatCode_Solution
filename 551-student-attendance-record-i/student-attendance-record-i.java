@@ -1,0 +1,31 @@
+class Solution {
+    public boolean checkRecord(String s) {
+
+        int absent = 0;
+        int late = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+
+            char ch = s.charAt(i);
+
+            // Count absent
+            if (ch == 'A') {
+                absent++;
+            }
+
+            // Count consecutive late
+            if (ch == 'L') {
+                late++;
+            } else {
+                late = 0;
+            }
+
+            // Conditions fail
+            if (absent >= 2 || late >= 3) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
